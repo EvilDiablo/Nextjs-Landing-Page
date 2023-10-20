@@ -9,21 +9,31 @@ import {
   NavigationMenuLink,
 } from "./ui/navigation-menu";
 import Link from "next/link";
+import { Navigation } from "@/data/content-data";
 
 const Navbar = () => {
   return (
-    <div className='flex flex-row justify-between p-4 backdrop-blur-sm sticky top-0 z-[1000]'>
+    <div className='flex flex-row justify-center md:justify-between p-4 sticky top-0 z-[1000]'>
       {/* use image/next for the logo */}
-      <div>logo</div>
-
+      {/* <Image src={""} alt="" className='hidden md:block'/> */}
+      {/*comment the line below when include the logo*/}
+      <div className='hidden md:block'>LOGO</div>
       <NavigationMenu>
         <NavigationMenuList>
-          <NavigationMenuItem>
-            <Link href='/' legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Documentation
-              </NavigationMenuLink>
-            </Link>
+          <NavigationMenuItem className='space-x-2'>
+            {Navigation.map((data, key) => {
+              return (
+                <>
+                  <Link href={data.Link} legacyBehavior passHref key={key}>
+                    <NavigationMenuLink
+                      className={navigationMenuTriggerStyle()}
+                    >
+                      {data.Name}
+                    </NavigationMenuLink>
+                  </Link>
+                </>
+              );
+            })}
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>

@@ -4,15 +4,15 @@ export const Navigation: { Name: string; Link: string }[] = [
     Link: "/",
   },
   {
-    Name: "Docs",
-    Link: "",
+    Name: "Services",
+    Link: "/services",
   },
   {
     Name: "Team",
     Link: "",
   },
   {
-    Name: "Contact",
+    Name: "Partners",
     Link: "",
   },
 ];

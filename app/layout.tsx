@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
@@ -16,15 +15,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className='relative flex flex-col text-white bg-slate-50'>
-        <video autoPlay muted loop className='fixed h-full w-full object-cover'>
+      <body className='h-screen flex flex-col text-white bg-slate-50'>
+        <video
+          autoPlay
+          muted
+          loop
+          className='absolute h-full w-full object-cover z-0'
+        >
           <source src='Background.mp4' type='video/mp4' />
         </video>
-        <div className='relative space-y-8'>
-          <Navbar />
-          <div className='h-full w-full flex relative'>{children}</div>
-          <Footer />
-        </div>
+        <Navbar />
+        <div className='relative h-full z-10'>{children}</div>
+        <Footer />
       </body>
     </html>
   );
